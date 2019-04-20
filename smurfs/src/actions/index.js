@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 /*
   Action Types Go Here!
@@ -12,7 +12,7 @@ export const ADD_SMURF = "ADD_SMURF";
 export const UPDATE_SMURF = "UPDATE_SMURF";
 export const DELETE_SMURF = "DELETE_SMURF";
 
-const SMURFY_API = "http://localhost:3333";
+const SMURFY_API = "http://localhost:3333/smurfs";
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
@@ -26,20 +26,20 @@ const SMURFY_API = "http://localhost:3333";
 */
 
 export const getSmurfs = _ => dispatch => {
-    dispatch({ type: START_FETCH });
+  dispatch({ type: START_FETCH });
 
-    axios
-        .get(SMURFY_API)
-        .then(res =>
-            dispatch({
-                type: GET_SMURFS,
-                payload: res.data
-            })
-        )
-        .catch(err =>
-            dispatch({
-                type: FETCH_FAIL,
-                payload: err
-            })
-        )
-}
+  axios
+    .get(SMURFY_API)
+    .then(res =>
+      dispatch({
+        type: GET_SMURFS,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: FETCH_FAIL,
+        payload: err
+      })
+    );
+};
