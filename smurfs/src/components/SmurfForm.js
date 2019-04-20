@@ -22,7 +22,12 @@ class SmurfForm extends Component {
     let { name, age, height } = this.state;
     let id = new Date().getMilliseconds();
 
-    this.addSmurf({ name, age, height, id });
+    this.props.addSmurf({ name, age, height, id });
+    this.setState({
+      name: "",
+      age: "",
+      height: ""
+    });
   };
 
   render() {
@@ -42,7 +47,7 @@ class SmurfForm extends Component {
         />
         <input
           value={this.state.height}
-          height="height"
+          name="height"
           placeholder="height"
           onChange={e => this.handleChange(e)}
         />
