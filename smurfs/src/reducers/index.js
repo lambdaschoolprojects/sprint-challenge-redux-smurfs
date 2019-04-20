@@ -35,20 +35,17 @@ const smurfReducer = (state = initialState, action) => {
       break;
     case GETTING_SMURFS:
       break;
+    case SMURF_ADDED:
     case SMURFS_DONE_GOT:
+    case SMURF_UPDATED:
+    case SMURF_DELETED:
       return { ...state, smurfs: action.payload };
       break;
     case ADDING_SMURF:
       break;
-    case SMURF_ADDED:
-      break;
     case UPDATING_SMURF:
       break;
-    case SMURF_UPDATED:
-      break;
     case DELETING_SMURF:
-      break;
-    case SMURF_DELETED:
       break;
     default:
       return state;

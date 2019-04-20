@@ -52,4 +52,11 @@ export const getSmurfs = _ => dispatch => {
 
 export const addSmurf = smurf => dispatch => {
   dispatch({ type: ADDING_SMURF });
+
+  axios.post(SMURFY_API, smurf).then(res => {
+    dispatch({
+      type: SMURF_ADDED,
+      payload: res.data
+    });
+  });
 };

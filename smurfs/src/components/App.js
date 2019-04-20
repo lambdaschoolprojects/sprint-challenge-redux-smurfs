@@ -9,6 +9,7 @@ import { connect } from "react-redux";
  */
 import { getSmurfs } from "../actions";
 import SmurfyContainer from "./SmurfyContainer";
+import SmurfForm from "./SmurfForm";
 
 class App extends Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <SmurfForm />
         <SmurfyContainer smurfs={this.props.smurfs} />
       </div>
     );
