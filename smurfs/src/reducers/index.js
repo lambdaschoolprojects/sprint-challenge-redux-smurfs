@@ -2,13 +2,15 @@
   Be sure to import in all of the action types from `../actions`
 */
 import {
-  FETCH_FAIL,
-  FETCH_SUCCESS,
-  START_FETCH,
-  GET_SMURFS,
-  ADD_SMURF,
-  DELETE_SMURF,
-  UPDATE_SMURF
+  GETTING_SMURFS,
+  SMURFS_DONE_GOT,
+  SMURF_ADDED,
+  SMURF_DELETED,
+  SMURF_UPDATED,
+  ADDING_SMURF,
+  DELETING_SMURF,
+  UPDATING_SMURF,
+  FAILED_REQUEST
 } from "../actions";
 
 const initialState = {
@@ -29,18 +31,24 @@ const initialState = {
 */
 const smurfReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_FAIL:
+    case FAILED_REQUEST:
       break;
-    case START_FETCH:
+    case GETTING_SMURFS:
       break;
-    case GET_SMURFS:
+    case SMURFS_DONE_GOT:
       return { ...state, smurfs: action.payload };
       break;
-    case ADD_SMURF:
+    case ADDING_SMURF:
       break;
-    case UPDATE_SMURF:
+    case SMURF_ADDED:
       break;
-    case DELETE_SMURF:
+    case UPDATING_SMURF:
+      break;
+    case SMURF_UPDATED:
+      break;
+    case DELETING_SMURF:
+      break;
+    case SMURF_DELETED:
       break;
     default:
       return state;

@@ -4,13 +4,19 @@ import axios from "axios";
   Action Types Go Here!
   Be sure to export each action type so you can pull it into your reducer
 */
-export const START_FETCH = "START_FETCH";
-export const FETCH_SUCCESS = "FETCH_SUCCESS";
-export const FETCH_FAIL = "FETCH_FAIL";
-export const GET_SMURFS = "GET_SMURFS";
-export const ADD_SMURF = "ADD_SMURF";
-export const UPDATE_SMURF = "UPDATE_SMURF";
-export const DELETE_SMURF = "DELETE_SMURF";
+export const GETTING_SMURFS = "GETTING_SMURFS";
+export const SMURFS_DONE_GOT = "SMURFS_DONE_GOT";
+
+export const ADDING_SMURF = "ADDING_SMURF";
+export const SMURF_ADDED = "SMURF_ADDED";
+
+export const UPDATING_SMURF = "UPDATING_SMURF";
+export const SMURF_UPDATED = "SMURF_UPDATED";
+
+export const DELETING_SMURF = "DELETING_SMURF";
+export const SMURF_DELETED = "SMURF_DELETED";
+
+export const FAILED_REQUEST = "FAILED_REQUEST";
 
 const SMURFY_API = "http://localhost:3333/smurfs";
 
@@ -26,20 +32,24 @@ const SMURFY_API = "http://localhost:3333/smurfs";
 */
 
 export const getSmurfs = _ => dispatch => {
-  dispatch({ type: START_FETCH });
+  dispatch({ type: GETTING_SMURFS });
 
   axios
     .get(SMURFY_API)
     .then(res =>
       dispatch({
-        type: GET_SMURFS,
+        type: SMURFS_DONE_GOT,
         payload: res.data
       })
     )
     .catch(err =>
       dispatch({
-        type: FETCH_FAIL,
+        type: FAILED_REQUEST,
         payload: err
       })
     );
+};
+
+export const addSmurf = smurf => dispatch => {
+  dispatch({ type: ADDING_SMURF });
 };
