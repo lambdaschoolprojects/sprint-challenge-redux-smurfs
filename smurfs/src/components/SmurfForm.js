@@ -20,9 +20,8 @@ class SmurfForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     let { name, age, height } = this.state;
-    let id = new Date().getMilliseconds();
 
-    this.props.addSmurf({ name, age, height, id });
+    this.props.addSmurf({ name, age, height });
     this.setState({
       name: "",
       age: "",

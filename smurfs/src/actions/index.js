@@ -60,3 +60,22 @@ export const addSmurf = smurf => dispatch => {
     });
   });
 };
+
+export const deleteSmurf = smurf => dispatch => {
+  dispatch({ type: DELETING_SMURF });
+
+  axios
+    .delete(SMURFY_API, smurf)
+    .then(res => {
+      dispatch({
+        type: SMURF_DELETED,
+        payload: res.data
+      });
+    })
+    .catch(error => {
+      dispatch({
+        type: FAILED_REQUEST,
+        payload: error
+      });
+    });
+};
