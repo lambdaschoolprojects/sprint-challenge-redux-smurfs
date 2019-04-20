@@ -34,8 +34,7 @@ const smurfReducer = (state = initialState, action) => {
     case START_FETCH:
       break;
     case GET_SMURFS:
-      console.log(action.payload);
-      return state;
+      return { ...state, smurfs: action.payload };
       break;
     case ADD_SMURF:
       break;

@@ -8,6 +8,7 @@ import { connect } from "react-redux";
  `How do I ensure that my component links the state to props?`
  */
 import { getSmurfs } from "../actions";
+import SmurfyContainer from "./SmurfyContainer";
 
 class App extends Component {
   componentDidMount() {
@@ -17,10 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your Redux version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+        <SmurfyContainer smurfs={this.props.smurfs} />
       </div>
     );
   }
