@@ -65,7 +65,7 @@ export const deleteSmurf = smurf => dispatch => {
   dispatch({ type: DELETING_SMURF });
 
   axios
-    .delete(SMURFY_API, smurf)
+    .delete(`${SMURFY_API}/${smurf}`)
     .then(res => {
       dispatch({
         type: SMURF_DELETED,
